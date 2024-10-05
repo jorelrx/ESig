@@ -1,0 +1,36 @@
+@model IEnumerable<SalarioWeb.DTOs.Pessoa.PessoaDTO>
+
+@{
+    ViewData["Title"] = "Pessoas";
+}
+
+<h1 class="mb-4">Lista de Pessoas</h1>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Adicionar Pessoa</a>
+    <a asp-action="CalcularSalarios" class="btn btn-secondary">Calcular Salários</a>
+</p>
+<table class="table table-hover table-bordered">
+    <thead class="thead-light">
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Cargo</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var pessoa in Model)
+    {
+        <tr>
+            <td>@pessoa.Nome</td>
+            <td>@pessoa.Email</td>
+            <td>@pessoa.Cargo</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@pessoa.PessoaId" class="btn btn-sm btn-warning">Editar</a>
+                <a asp-action="Details" asp-route-id="@pessoa.PessoaId" class="btn btn-sm btn-info">Detalhes</a>
+                <a asp-action="Delete" asp-route-id="@pessoa.PessoaId" class="btn btn-sm btn-danger">Excluir</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

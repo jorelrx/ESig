@@ -1,0 +1,29 @@
+@model IEnumerable<SalarioWeb.Models.Cargo>
+
+@{
+    ViewData["Title"] = "Cargos";
+}
+
+<h1 class="mb-4">Lista de Cargos</h1>
+
+<table class="table table-hover table-bordered">
+    <thead class="thead-light">
+        <tr>
+            <th>Nome</th>
+            <th>Salário</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var cargo in Model)
+    {
+        <tr>
+            <td>@cargo.Nome</td>
+            <td>@cargo.Salario</td>
+            <td>
+                <a asp-action="Details" asp-route-id="@cargo.CargoId" class="btn btn-sm btn-info">Detalhes</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

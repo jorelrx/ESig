@@ -1,0 +1,39 @@
+@model IEnumerable<SalarioWeb.DTOs.PessoaRelatorioDTO>
+
+@{
+    ViewData["Title"] = "Relatório Geral de Salários";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>Nome</th>
+            <th>Cargo</th>
+            <th>Salário Inicial</th>
+            <th>Salário Anual (Inicial)</th>
+            <th>Salário Atual</th>
+            <th>Salário Anual (Atual)</th>
+            <th>Data do Último Cálculo</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var relatorio in Model)
+        {
+            <tr>
+                <td>@relatorio.Nome</td>
+                <td>@relatorio.Cargo</td>
+                <td>@relatorio.SalarioInicial.ToString("C")</td>
+                <td>@relatorio.SalarioAnualInicial.ToString("C")</td>
+                <td>@relatorio.SalarioAtual.ToString("C")</td>
+                <td>@relatorio.SalarioAnualAtual.ToString("C")</td>
+                <td>@relatorio.DataCalculo.ToString("dd/MM/yyyy")</td>
+                <td>
+                    <a href="/Pessoa/Details/@relatorio.PessoaId" class="btn btn-sm btn-info">Detalhes</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

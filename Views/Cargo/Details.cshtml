@@ -1,0 +1,16 @@
+@model SalarioWeb.Models.Cargo;
+
+@{
+    ViewData["Title"] = "Detalhes de Cargo";
+}
+
+<h2>Detalhes da Pessoa</h2>
+
+<div class="card">
+    <div class="card-body">
+        <p><strong>Nome:</strong> @Model.Nome</p>
+        <p><strong>Salário:</strong> @Model.Salario</p>
+    </div>
+</div>
+
+<a href="/Cargo" class="btn btn-secondary">Voltar</a>

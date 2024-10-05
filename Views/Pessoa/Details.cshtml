@@ -1,0 +1,43 @@
+@model SalarioWeb.DTOs.Pessoa.PessoaDTO
+
+@{
+    ViewData["Title"] = "Detalhes da Pessoa";
+}
+
+<h2>Detalhes da Pessoa</h2>
+
+<div class="card">
+    <div class="card-body">
+        <p><strong>Nome:</strong> @Model.Nome</p>
+        <p><strong>Email:</strong> @Model.Email</p>
+        <p><strong>Cargo:</strong> @Model.Cargo</p>
+        <p><strong>Cidade:</strong> @Model.Cidade</p>
+    </div>
+</div>
+
+<h3 class="mt-4">Relatório de Salários</h3>
+
+@if (ViewBag.Relatorio != null)
+{
+    <table class="table table-striped">
+        <thead class="thead-light">
+            <tr>
+                <th>Ano</th>
+                <th>Salário</th>
+                <th>Data do Cálculo</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.Relatorio.DetalhesSalario)
+            {
+                <tr>
+                    <td>@item.Ano</td>
+                    <td>@item.Salario.ToString("C")</td>
+                    <td>@item.DataCalculo.ToString("dd/MM/yyyy")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<a href="/Pessoa" class="btn btn-secondary">Voltar</a>
