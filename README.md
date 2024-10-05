@@ -65,7 +65,7 @@ A aplicação utiliza o SQL Server como banco de dados. É necessário configura
 ```json
 "ConnectionStrings": {
   "DefaultConnection": "Server=SEU_SERVIDOR;Database=SalarioWeb;Trusted_Connection=True;"
-}```
+}```json
 
 # Passos para Executar o Projeto
 
