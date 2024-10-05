@@ -66,3 +66,52 @@ A aplicação utiliza o SQL Server como banco de dados. É necessário configura
 "ConnectionStrings": {
   "DefaultConnection": "Server=SEU_SERVIDOR;Database=SalarioWeb;Trusted_Connection=True;"
 }
+
+# Passos para Executar o Projeto
+
+1. Clonar o Repositório
+
+Clone o projeto em sua máquina local usando o comando Git:
+
+git clone https://github.com/seuusuario/salario-web.git
+
+2. Configurar a Conexão com o Banco de Dados
+
+No arquivo appsettings.json, configure a connection string para se conectar à sua instância local do SQL Server:
+
+"ConnectionStrings": {
+  "DefaultConnection": "Server=SEU_SERVIDOR;Database=SalarioWeb;Trusted_Connection=True;"
+}
+
+Substitua SEU_SERVIDOR pelo nome ou IP do seu servidor SQL.
+
+Se estiver usando SQL Server Express localmente, a connection string pode ser algo como:
+
+
+"DefaultConnection": "Server=(localdb)\\MSSQLLocalDB;Database=SalarioWeb;Trusted_Connection=True;"
+
+3. Instalar Dependências
+
+Antes de executar o projeto, restaure todas as dependências. Se estiver usando Visual Studio ou Visual Studio Code, abra o terminal no diretório do projeto e execute o seguinte comando:
+
+dotnet restore
+
+4. Executar Migrações para o Banco de Dados
+
+Execute as migrações para garantir que o banco de dados esteja atualizado. Você pode rodar este comando no terminal:
+
+dotnet ef database update
+
+Este comando cria todas as tabelas e estruturas necessárias no banco de dados.
+
+5. Configurar o Arquivo Excel para Importação de Dados
+
+Coloque o arquivo dados.xlsx dentro da pasta Excels no diretório raiz do projeto. Certifique-se de que o arquivo tenha as abas Pessoa e Cargo com a estrutura descrita no README anterior.
+
+6. Executar o Projeto
+
+Após a configuração do banco de dados e restauração das dependências, você pode executar o projeto com o seguinte comando:
+
+dotnet run
+
+Ou, se estiver utilizando o Visual Studio, apenas pressione F5 ou clique em "Run" para iniciar o projeto.
